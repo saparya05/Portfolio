@@ -23,3 +23,15 @@ menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
 }
+
+
+const toggleButton = document.getElementById('toggleButton');
+
+toggleButton.addEventListener('click', () => {
+  const currentTheme = document.body.getAttribute('data-theme');
+  if (currentTheme === 'dark') {
+    document.body.setAttribute('data-theme', 'light');
+  } else {
+    document.body.setAttribute('data-theme', 'dark');
+  }
+});

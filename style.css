@@ -8,23 +8,36 @@
     scroll-behavior: smooth;
     font-family: "poppins", sans-serif;
 }
+
 :root{
-    --bg-color: rgb(4, 0, 24);
-    --secondary-bg-color: rgb(7, 0, 44);
-    --text-color: white;
+    --bg-color: rgb(255, 255, 255);
+    --secondary-bg-color: rgb(193, 201, 219);
+    --text-color: rgb(0, 0, 0);
     --main-color: #2474eb;
 }
+
 
 html{
     font-size: 60%;
     overflow-x: hidden;
 }
 
-body{
-    background: var(--bg-color);
+body {
+    --background-color: #ffffff;
+    --text-color: rgb(7, 0, 44);
+    --secondary-bg-color: rgb(193, 201, 219);
+    --main-color: #2474eb;
+    background-color: var(--background-color);
     color: var(--text-color);
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
-
+  
+body[data-theme="dark"] {
+    --background-color: rgb(7, 0, 44);
+    --text-color: #ffffff;
+    --secondary-bg-color:rgb(4, 0, 24);
+    --bg-color: rgb(7, 0, 44);
+}
 
 .header{
     position: fixed;
@@ -32,11 +45,12 @@ body{
     left: 0;
     width: 100%;
     padding: 4rem 12% 4rem;
-    background: rgb(4, 0, 24);
+    background: var(--secondary-bg-color); 
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 5;
+    transition: background-color 0.5s ease;
 }
 .logo{
     font-size: 3rem;
@@ -63,6 +77,12 @@ body{
     color: var(--main-color);
     border-bottom: 2px solid var(--main-color);
 }
+.navbar #toggleButton{
+    background-color: var(--main-color);
+    border-radius: 10%;
+    margin-left: 2rem;
+}
+
 #menu-icon{
     font-size: 3.6rem;
     color: var(--main-color);
@@ -163,6 +183,7 @@ span{
 .btn:hover{
     transform: scale(1.05);
     box-shadow:0 0 50px var(--main-color);
+    transition: 0.3s ease-in-out;
 }
 .btn-group{
     display: flex;
@@ -250,6 +271,7 @@ span{
 .education{
     padding: 100px 15px;
     background: var(--secondary-bg-color);
+    transition: background-color 0.5s ease;
 }
 .education h2{
     margin-bottom: 5rem;
@@ -297,8 +319,9 @@ span{
 .timeline-date{
     font-size: 20px;
     font-weight: 800;
-    color: white;
+    color: var(--text-color);
     margin: 6px 0 15px;
+    transition: color 0.5s ease;
 }
 .timeline-content{
     background-color: var(--bg-color);
@@ -307,23 +330,26 @@ span{
     border-radius: 4rem;
     box-shadow: 0 0 10px var(--main-color);
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: background-color 0.5s ease;
 }
 .timeline-content:hover{
     transform: scale(1.05);
     box-shadow: 0 0 25px var(--main-color);
+    transition: 0.5s ease-in-out;
 }
 .timeline-content h3{
     font-size: 20px;
-    color: white;
+    color: var(--text-color);
     margin: 0 0 10px;
     font-weight: 500;
+    transition: color 0.5s ease;
 }
 .timeline-content p{
-    color: white;
+    color: var(--text-color);
     font-size: 16px;
     font-weight: 300;
     line-height: 22px;
+    transition: color 0.5s ease;
 }
 ::-webkit-scrollbar{
     width: 15px;
@@ -341,10 +367,12 @@ span{
 .skill{
     background: var(--bg-color);
     color: black;
+    transition: background-color 0.5s ease;
 }
 .skill h2{
     margin-bottom: 5rem;
-    color: white;
+    color: var(--text-color);
+    transition: color 0.5s ease;
 }
 .skill-container{
     display: grid;
@@ -393,6 +421,7 @@ span{
 
 .projects{
     background: var(--secondary-bg-color);
+    transition: background-color 0.5s ease;
 }
 .projects-box{
     background-size: cover;
@@ -430,13 +459,14 @@ span{
     justify-content: center;
     text-align: center;
     gap: 1.5rem;
-    color: white;
-    transition: 0.4s ease-in-out;
+    color: var(--text-color);
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 .projects-item:hover{
     border: 3px solid var(--main-color);
     transform: translateY(-10px) scale(1.03);
     box-shadow: 0 0 50px var(--main-color);
+    transition: 0.5s ease;
 }
 .projects-item h2{
     font-size: 2.8rem;
@@ -452,10 +482,12 @@ span{
 
 .contact{
     background-color: var(--bg-color);
+    transition: background-color 0.5s ease;
 }
 .contact h2{
     margin-bottom: 3rem;
-    color: white;
+    color: var(--text-color);
+    transition: color 0.5s ease;
 }
 .contact form{
     display: flex;
@@ -480,6 +512,7 @@ span{
     border: 2px solid var(--main-color);
     margin: 1.5rem 0;
     resize: none;
+    transition: background-color 0.5s ease;
 }
 .contact form .btn{
     margin-top: 2rem;
@@ -490,11 +523,13 @@ span{
     width: 100%;
     padding: 40px 0;
     background-color: var(--secondary-bg-color);
+    transition: background-color 0.5s ease;
 }
 .footer .social{
     text-align: center;
     padding-bottom: 25px;
     color: var(--main-color);
+    transition: color 0.5s ease;
 }
 .footer .social a{
     font-size: 25px;
@@ -524,7 +559,7 @@ span{
     text-align: center;
 }
 .footer ul li a{
-    color: white;
+    color: var(--text-color);
     border-bottom: 2px solid transparent;
     transition: 0.3s ease-in-out;
 }
@@ -539,7 +574,8 @@ span{
     margin-top: 50px;
     text-align: center;
     font-size: 16px;
-    color: white;
+    color: var(--text-color);
+    transition:color 0.5s ease;
 }
 
 /* ---------------------------------------------Responsiveness---------------------- */
@@ -601,7 +637,7 @@ span{
         display: block;
         font-size: 2rem;
         margin: 3rem 0;
-        color: white;
+        color: var(--text-color);
     }
     .home{
         flex-direction: column-reverse;
